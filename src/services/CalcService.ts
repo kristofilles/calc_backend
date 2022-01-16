@@ -1,12 +1,8 @@
 import fs from 'fs';
 
 const get = () => {
-  fs.readFile('data.txt', (err, data) => {
-    if (err) console.log(err)
-    const result = data.toString() === "" ? null : data.toString()
-    console.log(result)
-    return data
-  })
+  const result = fs.readFileSync('data.txt')
+  return result.toString()
 }
 
 const save = (value: number) => {
